@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>About Candycore Museum</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ================= ABOUT PAGE ================= */
+    body { margin:0; font-family: 'Poppins', sans-serif; }
+
+    nav {
+      background: #ffebf0;
+      padding: 15px 20px;
+    }
+    nav a {
+      margin-right: 20px;
+      text-decoration: none;
+      color: #ff4fa3;
+      font-weight: bold;
+    }
+    nav a.active { text-decoration: underline; }
+
+    .about-page {
+      background: linear-gradient(120deg, #fff0f8, #f0fff4);
+      padding: 60px 20px;
+    }
+
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      gap: 40px;
+    }
+
+    .about-left {
+      flex: 1 1 400px;
+      position: relative;
+    }
+
+    .about-left h2 {
+      font-size: 36px;
+      color: #ff4fa3;
+      margin-bottom: 20px;
+    }
+
+    .about-left p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .about-left strong {
+      color: #7b5cff;
+    }
+
+    .about-right {
+      flex: 1 1 400px;
+      text-align: center;
+    }
+
+    .about-right img {
+      max-width: 100%;
+      border-radius: 20px;
+    }
+
+    /* Bubble style */
+    .bubbles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.7;
+      animation: floatBubble linear infinite;
+    }
+
+    @keyframes floatBubble {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-250px) scale(0.5); opacity: 0; }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .about-container { flex-direction: column; }
+      .about-left, .about-right { flex: 1 1 100%; }
+      .about-left h2 { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="tickets.html">Tickets</a>
+    <a href="gallery.html">Gallery</a>
+  </nav>
+
+  <!-- About Section -->
+  <section class="about-page">
+    <div class="about-container">
+      <!-- Left: Text + Bubbles -->
+      <div class="about-left">
+        <h2>About Candycore Museum</h2>
+        <p>Hi, chúng mình là team Candycore, những người yêu Sanrio đến “mù mắt” với tất cả các nhân vật dễ thương nhất! 💖</p>
+        <p>Chúng mình luôn mơ ước có một nơi mà mọi người – từ bé đến lớn – đều có thể cười, khám phá và chụp thật nhiều ảnh “so cute” với các nhân vật Sanrio trong một không gian pastel và ngọt ngào.</p>
+        <p>Sau nhiều tháng lên ý tưởng, thử nghiệm màu sắc, ánh sáng và trải nghiệm tương tác, chúng mình đã tạo ra Candycore Museum – nơi nghệ thuật số gặp trí tưởng tượng, nơi bạn vừa học vừa chơi, vừa nhìn thấy thế giới Sanrio sống động như trong mơ.</p>
+        <p>Chúng mình hi vọng bạn sẽ yêu nơi này và mang về thật nhiều kỷ niệm ngọt ngào! 🍭🌈</p>
+
+        <!-- Bubble Container -->
+        <div class="bubbles"></div>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="about-right">
+        <img src="images/about-us.jpg" alt="Candycore Museum" />
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Bubble Script -->
+  <script>
+    const bubbleContainer = document.querySelector('.bubbles');
+    const colors = ['rgba(255,79,163,0.4)', 'rgba(45,226,166,0.4)', 'rgba(123,92,255,0.4)', 'rgba(255,210,63,0.4)'];
+
+    function createBubble() {
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      bubble.style.left = Math.random() * 100 + '%';
+      const size = 10 + Math.random() * 25;
+      bubble.style.width = bubble.style.height = size + 'px';
+      bubble.style.background = colors[Math.floor(Math.random() * colors.length)];
+      bubble.style.animationDuration = (4 + Math.random() * 4) + 's';
+      bubbleContainer.appendChild(bubble);
+
+      setTimeout(() => bubble.remove(), 8000);
+    }
+
+    setInterval(createBubble, 250);
+  </script>
+</body>
+</html>

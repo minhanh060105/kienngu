@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Candycore Museum</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="css/style.css" />
+<!-- model-viewer -->
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+  <audio id="webMusic" src="sounds/web.mp3" loop></audio>
+
+<script>
+const webMusic = document.getElementById("webMusic");
+webMusic.volume = 0.5;
+
+// Autoplay thử
+webMusic.play().catch(() => {
+  console.log("Autoplay bị chặn, đợi user click...");
+});
+
+// Bất kỳ click nào → bật nhạc
+window.addEventListener("click", () => {
+  webMusic.play();
+});
+</script>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">
+        <img src="logo/logomuseum.png" alt="Candycore Museum Logo" class="logo-img">
+        Candycore Museum
+    </div>
+    <nav>
+        <a href="about.html">About</a>
+        <a href="#exhibits">Exhibits</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#tickets">Tickets</a>
+        <a href="#gift">Gift</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    
+</header>
+
+<!-- GAME MODAL -->
+<div id="gameModal" class="modal">
+  <div class="modal-content">
+    <span id="closeGame" class="close">&times;</span>
+    <iframe src="game/game.html" 
+            style="width: 500px; height: 750px; border: none;" 
+            scrolling="no">
+    </iframe>
+  </div>
+</div>
+
+
+<!-- HERO -->
+<section class="hero reveal">
+  <div class="hero-text">
+    <h1>Candycore Museum</h1>
+    <p>Explore the colorful world of Sanrio in pastel & kawaii style!</p>
+    <button class="cta" id="exploreBtn">Explore Now</button>
+  </div>
+  <div class="hero-shape"></div>
+</section>
+
+<!-- EXHIBITS 3D -->
+<section id="exhibits" class="section mint reveal">
+    <div class="bubble-text">Interactive</div>
+    <div class="bubble-text">Exhibits</div>
+  
+    <div class="exhibit-grid">
+      <div class="exhibit-card">
+        <model-viewer src="models/hellokitty.glb" alt="Hello Kitty" auto-rotate camera-controls style="width:100%; height:300px;"></model-viewer>
+      </div>
+      <div class="exhibit-card">
+        <model-viewer src="models/tuxedosam.glb" alt="Tuxedosam" auto-rotate camera-controls style="width:100%; height:300px;"></model-viewer>
+      </div>
+      <div class="exhibit-card">
+        <model-viewer src="models/cinnamoroll.glb" alt="Cinnamoroll" auto-rotate camera-controls style="width:100%; height:300px;"></model-viewer>
+      </div>
+      <div class="exhibit-card">
+        <model-viewer src="models/keroppi.glb" alt="Keroppi" auto-rotate camera-controls style="width:100%; height:300px;"></model-viewer>
+      </div>
+      <div class="exhibit-card">
+        <model-viewer src="models/pompompurin.glb" alt="Pompompurin" auto-rotate camera-controls style="width:100%; height:300px;"></model-viewer>
+      </div>
+      <div class="exhibit-card">
+        <model-viewer src="models/kuromi.glb" alt="Kuromi" auto-rotate camera-controls style="width:100%; height:300px;"></model-viewer>
+      </div>
+      <div class="exhibit-card">
+        <model-viewer src="models/pochacco.glb" alt="Pochacco" auto-rotate camera-controls style="width:100%; height:300px;"></model-viewer>
+      </div>
+      <div class="exhibit-card">
+        <model-viewer src="models/mysweetpiano.glb" alt="My Sweet Piano" auto-rotate camera-controls style="width:100%; height:300px;"></model-viewer>
+      </div>
+    </div>
+  </section>
+  
+<section id="interactive-room" class="exhibition-view-section reveal">
+  <h2>Candycore Virtual Room</h2>
+  <div class="museum-viewport" id="museumViewport">
+    <img src="images/candycore_3d_room.jpg" alt="Candycore Museum Room" id="pan-image">
+  </div>
+  <p class="view-instruction">✨ Move your mouse to look around the room! ✨</p>
+</section>
+<!-- GALLERY -->
+<section id="gallery" class="section yellow reveal">
+  <h2>Merchandise Gallery</h2>
+  <div class="merch-slider">
+    <div class="merch-track">
+      <div class="merch-item"><img src="images/merch1.jpg" alt=""></div>
+      <div class="merch-item"><img src="images/merch2.jpg" alt=""></div>
+      <div class="merch-item"><img src="images/merch3.jpg" alt=""></div>
+      <div class="merch-item"><img src="images/merch4.jpg" alt=""></div>
+      <div class="merch-item"><img src="images/merch5.jpg" alt=""></div>
+      <div class="merch-item"><img src="images/merch6.jpg" alt=""></div>
+      <div class="merch-item"><img src="images/merch7.jpg" alt=""></div>
+      <div class="merch-item"><img src="images/merch8.jpg" alt=""></div>
+      <!-- duplicate for infinite scroll -->
+      <div class="merch-item"><img src="images/merch1.jpg" alt=""></div>
+      <div class="merch-item"><img src="images/merch2.jpg" alt=""></div>
+      <div class="merch-item"><img src="images/merch3.jpg" alt=""></div>
+      <div class="merch-item"><img src="images/merch4.jpg" alt=""></div>
+      <div class="merch-item"><img src="images/merch5.jpg" alt=""></div>
+      <div class="merch-item"><img src="images/merch6.jpg" alt=""></div>
+      <div class="merch-item"><img src="images/merch7.jpg" alt=""></div>
+      <div class="merch-item"><img src="images/merch8.jpg" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TICKETS ================= -->
+<section id="tickets" class="section reveal">
+    <div class="tickets-container">
+      <h2>Step into the Experience</h2>
+      <p>Select a ticket and let the moment find you, wherever you are!</p>
+      <a href="https://docs.google.com/forms/d/1F9CHkXn4mYqDu7yNZh3qEXF7-pGSPsW6sP7SlvZ17Wg/edit" target="_blank" class="cta gradient">BOOK NOW</a>
+    </div>
+  </section>
+  
+
+<!-- GIFT -->
+<section class="gift-section reveal" id="gift">
+  <h2>🎁 Gift for First 100 Visitors</h2>
+  <div class="scene">
+    <div class="carousel">
+      <img src="images/img1.jpg" alt="">
+      <img src="images/img2.jpg" alt="">
+      <img src="images/img3.jpg" alt="">
+      <img src="images/img4.jpg" alt="">
+      <img src="images/img5.jpg" alt="">
+      <img src="images/img6.jpg" alt="">
+      <img src="images/img7.jpg" alt="">
+      <img src="images/img8.jpg" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section pastel reveal">
+  <div class="contact-container">
+    <div class="contact-left">
+      <h2>Something else?</h2>
+      <p>Shoot us a message here!</p>
+    </div>
+    <div class="contact-right">
+      <form class="contact-form">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" rows="5" required></textarea>
+        <button type="submit" class="cta dark">SEND</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- JS -->
+<script src="js/main.js"></script>
+<script>
+  document.getElementById('exploreBtn').addEventListener('click', () => {
+    document.querySelector('#exhibits').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+  function revealOnScroll() {
+    reveals.forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      const height = window.innerHeight;
+      if(top < height - 100) el.classList.add('active');
+    });
+  }
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
+</script>
+<script>
+  function openGame() {
+      document.getElementById("gameModal").style.display = "block";
+      webMusic.pause();
+  }
+  const closeGame = document.getElementById("closeGame");
+  closeGame.addEventListener("click", () => {
+      const iframe = document.querySelector("#gameModal iframe");
+  
+      iframe.src = "";
+      document.getElementById("gameModal").style.display = "none";
+      webMusic.play();
+      setTimeout(() => {
+          iframe.src = "game/game.html";
+      }, 100);
+  });
+</script>
+
+</body>
+</html>
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>GIỚI THIỆU</h4>
+        <ul>
+          <li><a href="about.html">Về Chúng Tôi</a></li>
+          <li><a href="#">Sản phẩm Trưng bày</a></li>
+          <li><a href="#">Đặt vé</a></li>
+          <li><a href="#">Tuyển dụng</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>ĐIỀU KHOẢN</h4>
+        <ul>
+          <li><a href="#">Điều khoản sử dụng</a></li>
+          <li><a href="#">Chính sách bảo mật</a></li>
+          <li><a href="#">Hướng dẫn xuất hóa đơn GTGT</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>LIÊN HỆ</h4>
+        <p>Đặt vé: <a href="tel:19006789">19006789</a></p>
+        <p>Email: <a href="mailto:Candycorevietnam@gmai.com">Candycorevietnam@gmai.com</a></p>
+        <p>VPGG: Tầng 6, Toà nhà Toyota, 315 Trường Chinh, Hà Nội</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 THE CANDYCORE MUSEUM</p>
+    </div>
+  </footer>
+  <script>
+    const characterDescriptions = [
+      `Hello Kitty là cô mèo trắng xinh xắn với chiếc nơ đỏ trên tai, biểu tượng của sự dễ thương vượt thời gian. Cô luôn thân thiện, thích kết bạn và chia sẻ những niềm vui nhỏ. Hello Kitty còn đại diện cho tình bạn, sự lạc quan và nét ngọt ngào nhẹ nhàng. Cô luôn khiến mọi người cảm thấy ấm áp và hạnh phúc khi ở bên.`,
+      `Tuxedosam là chú chim cánh cụt bảnh bao mặc vest, hơi vụng về nhưng cực kỳ dễ thương. Cậu luôn lịch sự, lễ phép và thích kết bạn với mọi người. Dù đôi khi rơi vào những tình huống hài hước, Tuxedosam vẫn giữ được sự đáng yêu và ngộ nghĩnh. Cậu là hình mẫu của sự dễ thương pha chút tinh nghịch và bảnh bao.`,
+      `Cinnamoroll là chú chó trắng tinh với đôi tai dài có thể bay bổng như mây. Cậu rất thích uống cà phê và hay ngồi trên những đám mây ngọt ngào. Cậu luôn mang đến cảm giác nhẹ nhàng, dễ thương cho mọi người xung quanh. Cinnamoroll cũng là một người bạn tốt bụng và hay giúp đỡ mọi người.`,
+      `Keroppi là chú ếch xanh vui vẻ sống bên hồ Donut Pond, nơi cậu cùng bạn bè vui chơi mỗi ngày. Cậu thích bơi lội, chơi thể thao và luôn đầy năng lượng. Keroppi là người bạn hài hước, luôn khiến mọi người cười vui. Với nụ cười tươi rói, cậu mang đến niềm vui và tinh thần tích cực cho tất cả.`,
+      `Pompompurin là chú chó vàng mập mạp, thích ngủ và ăn bánh pudding. Cậu luôn bình tĩnh, dễ thương và mang đến cảm giác ấm áp cho mọi người. Pompompurin là một người bạn trung thành, luôn sẵn sàng lắng nghe và chia sẻ. Với tính cách dễ gần, cậu khiến mọi người yêu quý ngay từ lần gặp đầu tiên.`,
+      `Kuromi là cô nàng hắc bạch vừa dễ thương vừa nghịch ngợm, luôn đeo chiếc mũ gai đặc trưng. Dù hay trêu chọc bạn bè, cô vẫn rất biết cách quan tâm và bảo vệ họ. Kuromi thích những điều quái dị, nhưng luôn khiến mọi người thích thú bởi cá tính riêng.`,
+      `Pochacco là chú chó trắng năng động và tràn đầy sức sống. Cậu thích thể thao, chạy nhảy và khám phá mọi thứ xung quanh. Pochacco luôn vui vẻ, hiếu động và mang lại nguồn năng lượng tích cực. Là người bạn dễ gần, cậu khiến mọi người xung quanh cảm thấy phấn khích và vui vẻ.`,
+      `My Sweet Piano là cô cừu hồng đáng yêu, bạn thân của Cinnamoroll, luôn dịu dàng và ngọt ngào. Cô thích hát, chơi nhạc và làm mọi thứ xung quanh trở nên êm dịu. Với tính cách nhẹ nhàng, My Sweet Piano luôn đem đến cảm giác bình yên và dễ chịu. Cô là một người bạn tin cậy, luôn lắng nghe và chia sẻ niềm vui cùng mọi người.`
+    ];
+    
+    const exhibitCards = document.querySelectorAll('.exhibit-card');
+    
+    exhibitCards.forEach((card, index) => {
+      if(characterDescriptions[index]) {
+        const desc = document.createElement('p');
+        desc.classList.add('character-desc');
+        desc.textContent = characterDescriptions[index];
+    
+        const model = card.querySelector('model-viewer');
+        if(model) {
+          model.insertAdjacentElement('afterend', desc);
+        }
+      }
+    });
+    </script>
+    
